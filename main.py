@@ -11,7 +11,7 @@ class DataVisualizer:
         with open(self.file, 'r') as f:
             reader = csv.reader(f, delimiter=',')
             for row in reader:
-                data.append(row)
+                data.append([field.strip().rstrip(';') for field in row])
         return data
 
     def visualize_data(self, data, testmode=False):
